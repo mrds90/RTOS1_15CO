@@ -8,7 +8,7 @@ Material didáctico para la asignatura Sistemas Operativos en Tiempo Real de la 
 
 Los ejecicios son compatibles con el framework firmware v3 (https://github.com/epernia/firmware_v3)
 
-Los ejercicios de la Guía A, ademas, son compatibles con el framework (en desarrollo) (https://github.com/fbucafusco/embedded_framework) para correr aplicaciones de FreeRTOS simuladas en la PC.
+Los ejercicios de la Guía B, ademas, son compatibles con el framework (en desarrollo) (https://github.com/fbucafusco/embedded_framework) para correr aplicaciones de FreeRTOS simuladas en la PC.
 
 ## **Ejercicios**
 
