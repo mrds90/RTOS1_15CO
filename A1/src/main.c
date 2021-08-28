@@ -93,8 +93,10 @@ void task_led( void* param )
 
         /* toggle del led */
         gpioToggle( LEDB );
+
         /* cambio de estado al led */
         led_state = STATE_ON;
+
         /* planifico el apagado del led */
         schedulerAddTask( task_led,               // funcion de tarea a agregar
                           0,                    // parametro de la tarea
@@ -114,9 +116,14 @@ void task_led( void* param )
     }
 }
 
+/**
+   @brief Funcion que se ejecuta cada DEBOUNCE_TIME ticks.
+
+   @param param
+ */
 void keys_service_task( void* param )
 {
-    uint32_t event = keys_update( );
+    uint32_t event = keys_update();
 
     if( event == KEYS_EVENT_KEY_DOWN )
     {

@@ -35,7 +35,7 @@ typedef enum
 /*==================[definiciones de datos externos]=========================*/
 
 /*==================[declaraciones de funciones internas]====================*/
-uint32_t led_state;
+
 
 /*==================[declaraciones de funciones externas]====================*/
 void keys_service_task( void* param );
@@ -55,7 +55,7 @@ int main( void )
 
     /* inicializo el modulo de tecla */
     keys_init( );
-    led_state = STATE_OFF;
+    //led_state = STATE_OFF;
 
     /* agregamos al planificador una tarea que "consulte" el estado de la tecla,
        de manera periodica */
@@ -96,6 +96,8 @@ int main( void )
 /*==================[definiciones de funciones internas]=====================*/
 void task_led( void* param )
 {
+    static uint32_t led_state = STATE_OFF;
+
     if( led_state == STATE_OFF )
     {
         tick_t key_time_diff = keys_get_diff( );
@@ -113,7 +115,7 @@ void task_led( void* param )
         led_state = STATE_ON;
 
         /* planifico el apagado del led */
-        schedulerAddTask( task_led,               // funcion de tarea a agregar
+        schedulerAddTask( task_led,             // funcion de tarea a agregar
                           0,                    // parametro de la tarea
                           key_time_diff,        // offset de ejecucion en ticks
                           0                     // periodicidad de ejecucion en ticks
@@ -126,7 +128,6 @@ void task_led( void* param )
 
         /* cambio de estado al led */
         led_state = STATE_OFF;
-
     }
 }
 
