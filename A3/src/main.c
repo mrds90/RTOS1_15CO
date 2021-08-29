@@ -112,7 +112,7 @@ void task_led(void *param)
  */
 void keys_service_task(void *param)
 {
-    uint32_t time = FSMKeyTimeCounterUpdate(param);
+    tick_t time = FSMKeyTimeCounterUpdate(param);
 
     if (time)
     {
