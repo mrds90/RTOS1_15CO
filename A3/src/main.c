@@ -1,15 +1,12 @@
 /*=============================================================================
  * Copyright (c) 2021, Franco Bucafusco <franco_bucafusco@yahoo.com.ar>
  * 					   Martin N. Menendez <mmenendez@fi.uba.ar>
+ * 					   Marcos Dominguez <mrds0690@gmail.com>
  * All rights reserved.
  * License: Free
- * Date: 2021/10/03
+ * Date: 2021/08/29
  * Version: v1.0
  *===========================================================================*/
-
-// The maximum number of tasks required at any one time during the execution
-// of the program. MUST BE ADJUSTED FOR EACH NEW PROJECT
-#define SCHEDULER_MAX_TASKS (3)
 
 /*==================[inlcusiones]============================================*/
 
