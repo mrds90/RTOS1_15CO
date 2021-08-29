@@ -69,5 +69,3 @@ board.mk
 # VS code files
 .vscode
 .settings
-
-out/
