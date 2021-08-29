@@ -1,4 +1,4 @@
-Dominguez/RTOS_I/RTOS1_15CO/A1/out/libs/sapi/sapi_v0.6.2/soc/peripherals/src/sapi_i2c.o: \
+Dominguez/RTOS_I/RTOS1_15CO/A3/out/libs/sapi/sapi_v0.6.2/soc/peripherals/src/sapi_i2c.o: \
  libs/sapi/sapi_v0.6.2/soc/peripherals/src/sapi_i2c.c \
  libs/sapi/sapi_v0.6.2/soc/peripherals/inc/sapi_i2c.h \
  libs/sapi/sapi_v0.6.2/base/inc/sapi_datatypes.h \

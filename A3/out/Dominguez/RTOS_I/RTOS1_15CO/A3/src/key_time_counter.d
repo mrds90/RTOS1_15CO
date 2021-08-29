@@ -1,6 +1,6 @@
-Dominguez/RTOS_I/RTOS1_15CO/A1/out/Dominguez/RTOS_I/RTOS1_15CO/A1/src/keys.o: \
- Dominguez/RTOS_I/RTOS1_15CO/A1/src/keys.c \
- Dominguez/RTOS_I/RTOS1_15CO/A1/inc/keys.h \
+Dominguez/RTOS_I/RTOS1_15CO/A3/out/Dominguez/RTOS_I/RTOS1_15CO/A3/src/key_time_counter.o: \
+ Dominguez/RTOS_I/RTOS1_15CO/A3/src/key_time_counter.c \
+ Dominguez/RTOS_I/RTOS1_15CO/A3/inc/key_time_counter.h \
  libs/sapi/sapi_v0.6.2/base/inc/sapi.h \
  libs/sapi/sapi_v0.6.2/base/inc/sapi_datatypes.h \
  libs/lpc_open/lpc_chip_43xx/inc/chip.h \
@@ -128,4 +128,5 @@ Dominguez/RTOS_I/RTOS1_15CO/A1/out/Dominguez/RTOS_I/RTOS1_15CO/A1/src/keys.o: \
  libs/sapi/sapi_v0.6.2/external_peripherals/pressure_temperature/bmp280/inc/sapi_bmp280.h \
  libs/sapi/sapi_v0.6.2/external_peripherals/pressure_temperature/bmp280/inc/bmp280.h \
  libs/sapi/sapi_v0.6.2/external_peripherals/pressure_temperature/bmp280/inc/bmp280_defs.h \
- libs/sapi/sapi_v0.6.2/external_peripherals/mcp23017/inc/mcp23017.h
+ libs/sapi/sapi_v0.6.2/external_peripherals/mcp23017/inc/mcp23017.h \
+ Dominguez/RTOS_I/RTOS1_15CO/A3/src/../inc/button.h

@@ -1,4 +1,4 @@
-Dominguez/RTOS_I/RTOS1_15CO/A1/out/libs/lpc_open/boards/edu_ciaa_nxp/src/board.o: \
+Dominguez/RTOS_I/RTOS1_15CO/A3/out/libs/lpc_open/boards/edu_ciaa_nxp/src/board.o: \
  libs/lpc_open/boards/edu_ciaa_nxp/src/board.c \
  libs/lpc_open/boards/edu_ciaa_nxp/inc/board.h \
  libs/lpc_open/lpc_chip_43xx/inc/chip.h \

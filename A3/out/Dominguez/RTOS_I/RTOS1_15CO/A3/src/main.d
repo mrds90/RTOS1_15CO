@@ -1,6 +1,5 @@
-Dominguez/RTOS_I/RTOS1_15CO/A1/out/Dominguez/RTOS_I/RTOS1_15CO/A1/src/main.o: \
- Dominguez/RTOS_I/RTOS1_15CO/A1/src/main.c \
- Dominguez/RTOS_I/RTOS1_15CO/A1/inc/keys.h \
+Dominguez/RTOS_I/RTOS1_15CO/A3/out/Dominguez/RTOS_I/RTOS1_15CO/A3/src/main.o: \
+ Dominguez/RTOS_I/RTOS1_15CO/A3/src/main.c \
  libs/sapi/sapi_v0.6.2/base/inc/sapi.h \
  libs/sapi/sapi_v0.6.2/base/inc/sapi_datatypes.h \
  libs/lpc_open/lpc_chip_43xx/inc/chip.h \
@@ -131,4 +130,5 @@ Dominguez/RTOS_I/RTOS1_15CO/A1/out/Dominguez/RTOS_I/RTOS1_15CO/A1/src/main.o: \
  libs/sapi/sapi_v0.6.2/external_peripherals/mcp23017/inc/mcp23017.h \
  libs/seos_pont/seos_pont_2014/inc/seos_pont.h \
  libs/seos_pont/seos_pont_2014/inc/seos_pont_2014_isr.h \
- libs/seos_pont/seos_pont_2014/inc/seos_pont_2014_scheduler.h
+ libs/seos_pont/seos_pont_2014/inc/seos_pont_2014_scheduler.h \
+ Dominguez/RTOS_I/RTOS1_15CO/A3/inc/key_time_counter.h

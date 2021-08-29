@@ -7,19 +7,16 @@
  * Version: v1.0
  *===========================================================================*/
 
-#include "keys.h"
-
 // The maximum number of tasks required at any one time during the execution
 // of the program. MUST BE ADJUSTED FOR EACH NEW PROJECT
-#define SCHEDULER_MAX_TASKS   (3)
+#define SCHEDULER_MAX_TASKS (3)
 
 /*==================[inlcusiones]============================================*/
 
 //#include "cooperative_os_scheduler_03_seos_Pont2014.h"   // <= own header (optional)
-#include "sapi.h"        // <= sAPI header
-
-#include "seos_pont.h"       // <= dispatcher and task management header
-
+#include "sapi.h"             // <= sAPI header
+#include "seos_pont.h"        // <= dispatcher and task management header
+#include "key_time_counter.h" // <= key time counter header
 /*==================[definiciones y macros]==================================*/
 typedef enum
 {
@@ -28,19 +25,19 @@ typedef enum
 } led_state_t;
 
 /*==================[definiciones de datos internos]=========================*/
-
+static uint32_t led_task_index[LED3 - LEDB + 1]; // array of task indexes
 /*==================[definiciones de datos externos]=========================*/
 
 /*==================[declaraciones de funciones internas]====================*/
-uint32_t led_state;
+uint32_t led_state[LED3 - LEDB + 1] = {STATE_OFF}; // array of led states
 
 /*==================[declaraciones de funciones externas]====================*/
-void keys_service_task( void* param );
+void keys_service_task(void *param); // key task function
 
 /*==================[funcion principal]======================================*/
 
 // FUNCION PRINCIPAL, PUNTO DE ENTRADA AL PROGRAMA LUEGO DE ENCENDIDO O RESET.
-int main( void )
+int main(void)
 {
     // ---------- CONFIGURACIONES ------------------------------
     // Inicializar y configurar la plataforma
@@ -50,23 +47,25 @@ int main( void )
     schedulerInit();
 
     /* inicializo el modulo de tecla */
-    keys_init( );
-    led_state = STATE_OFF;
+    FSMKeyTimeCounterInit();
 
-    /* agregamos al planificador una tarea que "consulte" el estado de la tecla,
+    /* agregamos al planificador una tarea que "consulte" el estado de las teclas,
        de manera periodica */
-    schedulerAddTask( keys_service_task,   // funcion de tarea a agregar
-                      0,            // parametro de la tarea
-                      0,            // offset de ejecucion en ticks
-                      DEBOUNCE_TIME // periodicidad de ejecucion en ticks
-                    );
-
+    gpioMap_t i = 0;
+    for (i = TEC1; i <= TEC4; i++)
+    {
+        schedulerAddTask(keys_service_task, // funcion de tarea a agregar
+                         (void *)i,         // parametro de la tarea
+                         0,                 // offset de ejecucion en ticks
+                         DEBOUNCE_TIME      // periodicidad de ejecucion en ticks
+        );
+    }
     // FUNCION que inicializa la interrupcion que ejecuta el planificador de
     // tareas con tick cada 1ms.
-    schedulerStart( 1 );
+    schedulerStart(1);
 
     // ---------- REPETIR POR SIEMPRE --------------------------
-    while( TRUE )
+    while (TRUE)
     {
         // Se despachan (ejecutan) las tareas marcadas para su ejecucion.
         // Luego se pone el sistema en bajo consumo hasta que ocurra la
@@ -84,34 +83,25 @@ int main( void )
 
 /*==================[definiciones de funciones internas]=====================*/
 
-void task_led( void* param )
+void task_led(void *param)
 {
-    if( led_state == STATE_OFF )
+    if (led_state[(gpioMap_t)param - LEDB] == STATE_OFF)
     {
-        tick_t key_time_diff = keys_get_diff( );
-
         /* toggle del led */
-        gpioToggle( LEDB );
+        gpioToggle((gpioMap_t)param);
 
         /* cambio de estado al led */
-        led_state = STATE_ON;
-
-        /* planifico el apagado del led */
-        schedulerAddTask( task_led,               // funcion de tarea a agregar
-                          0,                    // parametro de la tarea
-                          key_time_diff,         // offset de ejecucion en ticks
-                          0                     // periodicidad de ejecucion en ticks
-                        );
+        led_state[(gpioMap_t)param - LEDB] = STATE_ON;
     }
-    else if( led_state == STATE_ON )
+    else if (led_state[(gpioMap_t)param - LEDB] == STATE_ON)
     {
         /* toggle del led */
-        gpioToggle( LEDB );
+        gpioToggle((gpioMap_t)param);
 
         /* cambio de estado al led */
-        led_state = STATE_OFF;
+        led_state[(gpioMap_t)param - LEDB] = STATE_OFF;
 
-        keys_clear_diff();
+        schedulerDeleteTask(led_task_index[(gpioMap_t)param - LEDB]);
     }
 }
 
@@ -120,25 +110,20 @@ void task_led( void* param )
 
    @param param
  */
-void keys_service_task( void* param )
+void keys_service_task(void *param)
 {
-    uint32_t event = keys_update();
+    uint32_t time = FSMKeyTimeCounterUpdate(param);
 
-    if( event == KEYS_EVENT_KEY_DOWN )
-    {
-        /* no hago nada */
-    }
-    else if( event == KEYS_EVENT_KEY_UP )
+    if (time)
     {
         /* planifico que la tarea de LED se ejecute en 0 ticks */
-        schedulerAddTask(  task_led,      // funcion de tarea a agregar
-                           0,             // parametro de la tarea
-                           0,             // offset -> 0 = "ejecutate inmediatamente"
-                           0              // periodicidad de ejecucion en ticks
-                        );
+        led_task_index[(gpioMap_t)param - TEC1] = schedulerAddTask(task_led,                                   // funcion de tarea a agregar
+                                                                   (void *)((gpioMap_t)param + (LEDB - TEC1)), // LEDB - TEC1 es el offset que hay entre las teclas y los leds. De esta forma converimos una tecla a su led correspondiente.
+                                                                   0,                                          // offset -> 0 = "ejecutate inmediatamente"
+                                                                   time                                        // periodicidad de ejecucion en ticks
+        );
     }
 }
 /*==================[definiciones de funciones externas]=====================*/
-
 
 /*==================[fin del archivo]========================================*/
