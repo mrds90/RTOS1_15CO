@@ -14,7 +14,7 @@
 
 /* public macros ================================================================= */
 #define KEYS_INVALID_TIME   -1
-// #define DEBOUNCE_TIME       40
+#define DEBOUNCE_TIME       40
 
 /* types ================================================================= */
 typedef enum
