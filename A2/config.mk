@@ -14,5 +14,5 @@ LOAD_INRAM=n
 
 #con esta macro, se puede globalizar la defincion y cambiar la cantidad maxima
 #de tareas planificadas para SEOS
-DEFINES+= SCHEDULER_MAX_TASKS = 10
+# DEFINES+= SCHEDULER_MAX_TASKS = 10
 
