@@ -34,6 +34,7 @@ typedef enum
 tick_t keys_get_diff(  );
 void keys_clear_diff(  );
 
+uint32_t  keys_update( void );
 void keys_init( void );
 
 
