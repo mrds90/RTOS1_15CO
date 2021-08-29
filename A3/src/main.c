@@ -29,7 +29,7 @@ static uint32_t led_task_index[LED3 - LEDB + 1]; // array of task indexes
 /*==================[definiciones de datos externos]=========================*/
 
 /*==================[declaraciones de funciones internas]====================*/
-uint32_t led_state[LED3 - LEDB + 1] = {STATE_OFF}; // array of led states
+
 
 /*==================[declaraciones de funciones externas]====================*/
 void keys_service_task(void *param); // key task function
@@ -85,6 +85,8 @@ int main(void)
 
 void task_led(void *param)
 {
+    static uint32_t led_state[LED3 - LEDB + 1] = {STATE_OFF}; // array of led states
+
     if (led_state[(gpioMap_t)param - LEDB] == STATE_OFF)
     {
         /* toggle del led */
@@ -118,7 +120,7 @@ void keys_service_task(void *param)
     {
         /* planifico que la tarea de LED se ejecute en 0 ticks */
         led_task_index[(gpioMap_t)param - TEC1] = schedulerAddTask(task_led,                                   // funcion de tarea a agregar
-                                                                   (void *)((gpioMap_t)param + (LEDB - TEC1)), // LEDB - TEC1 es el offset que hay entre las teclas y los leds. De esta forma converimos una tecla a su led correspondiente.
+                                                                   (void *)((gpioMap_t)param + (LEDB - TEC1)), // LEDB - TEC1 es el offset que hay entre las teclas y los leds. De esta forma convertimos una tecla a su led correspondiente.
                                                                    0,                                          // offset -> 0 = "ejecutate inmediatamente"
                                                                    time                                        // periodicidad de ejecucion en ticks
         );
