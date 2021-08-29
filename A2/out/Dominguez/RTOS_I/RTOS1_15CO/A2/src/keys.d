@@ -1,6 +1,6 @@
 Dominguez/RTOS_I/RTOS1_15CO/A2/out/Dominguez/RTOS_I/RTOS1_15CO/A2/src/keys.o: \
  Dominguez/RTOS_I/RTOS1_15CO/A2/src/keys.c \
- Dominguez/RTOS_I/RTOS1_15CO/A2/inc/keys.h \
+ Dominguez/RTOS_I/RTOS1_15CO/A2/src/../inc/keys.h \
  libs/sapi/sapi_v0.6.2/base/inc/sapi.h \
  libs/sapi/sapi_v0.6.2/base/inc/sapi_datatypes.h \
  libs/lpc_open/lpc_chip_43xx/inc/chip.h \
