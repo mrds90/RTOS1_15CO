@@ -30,3 +30,27 @@ Los ejercicios de la Guía B, ademas, son compatibles con el framework (en desar
 | B_2 | Extensión conceptual de A_1 | Explicado en clase |
 | B_3 | Suspension y reanudacion de tareas + prioridades | Explicado en clase  |
 | B_4 | B_3 sin Round Robin | OBLIGATORIO |
+
+### __Guia C__
+| Ejercicio | Descripción | Tipo |
+| :-: | :-: | :-: |
+| C_1 | Demoras fijas  | Explicado en clase |
+| C_2 | Períodos fijos | Explicado en clase |
+| C_3 | Medir tiempo transcurrido | Explicado en clase |
+| C_4 | C_3 multitecla | Explicado en clase |
+| C_5 | One-shot | Explicado en clase |
+| C_6 | Tick rate modificado | Explicado en clase |
+| C_7 | Integrador | OBLIGATORIO |
+| C_8 | Extensión de C_7 | Ejercitación extra |
+| C_9 | Transmisión de UART simulada por soft | Ejercitación extra |
+| C_10 | Recepción de UART simulada por soft | Ejercitación extra |
+
+### Guia D
+| Ejercicio | Descripción | Tipo |
+| :-: | :-: | :-: |
+| D_1 | Sincronización con sem binario  | Explicado en clase |
+| D_2 | C_1 multitecla| Explicado en clase |
+| D_3 | Sincronizar varias tareas | Explicado en clase |
+| D_4 | Espera de semaforo | OBLIGATORIO |
+| D_5 | Contador de eventos | Explicado en clase |
+| D_6 | D_5 modular | Explicado en clase |
