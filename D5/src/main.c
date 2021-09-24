@@ -38,8 +38,8 @@ extern t_key_config keys_config[];
 /*==================[declaraciones de funciones internas]====================*/
 void gpio_init( void );
 /*==================[declaraciones de funciones externas]====================*/
-TickType_t get_diff();
-void clear_diff();
+TickType_t keys_get_diff();
+void keys_clear_diff();
 
 // Prototipo de funcion de la tarea
 void tarea_led( void* taskParmPtr );
@@ -76,7 +76,7 @@ int main( void )
     }
 
     // Inicializo driver de teclas
-    keys_Init();
+    keys_init();
 
     // Iniciar scheduler
     vTaskStartScheduler();					// Enciende tick | Crea idle y pone en ready | Evalua las tareas creadas | Prioridad mas alta pasa a running
