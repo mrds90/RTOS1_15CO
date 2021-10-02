@@ -39,8 +39,8 @@ extern t_key_config* keys_config;
 /*==================[declaraciones de funciones internas]====================*/
 void gpio_init( void );
 /*==================[declaraciones de funciones externas]====================*/
-TickType_t get_diff();
-void clear_diff();
+TickType_t keys_get_diff();
+void keys_clear_diff();
 
 // Prototipo de funcion de la tarea
 void tarea_led( void* taskParmPtr );
@@ -79,7 +79,7 @@ int main( void )
     }
 
     // Inicializo driver de teclas
-    keys_Init();
+    keys_init();
 
     // Crear semaforo
     sem_btn = xSemaphoreCreateBinary();
@@ -125,8 +125,8 @@ void tarea_led( void* taskParmPtr )
     {
         xSemaphoreTake( sem_btn, portMAX_DELAY );			// Esperamos tecla
 
-        dif = get_diff( index );
-        clear_diff( index );
+        dif = keys_get_diff( index );
+        keys_clear_diff( index );
 
         gpioWrite( leds_t[index], ON );
         gpioWrite( gpio_t[index], ON );
