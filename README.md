@@ -45,7 +45,7 @@ Los ejercicios de la Guía B, ademas, son compatibles con el framework (en desar
 | C_9 | Transmisión de UART simulada por soft | Ejercitación extra |
 | C_10 | Recepción de UART simulada por soft | Ejercitación extra |
 
-### Guia D
+### __Guia D__
 | Ejercicio | Descripción | Tipo |
 | :-: | :-: | :-: |
 | D_1 | Sincronización con sem binario  | Explicado en clase |
@@ -54,3 +54,14 @@ Los ejercicios de la Guía B, ademas, son compatibles con el framework (en desar
 | D_4 | Espera de semaforo | OBLIGATORIO |
 | D_5 | Contador de eventos | Explicado en clase |
 | D_6 | D_5 modular | Explicado en clase |
+
+### __Guia E__
+| Ejercicio | Descripción | Tipo |
+| :-: | :-: | :-: |
+| E_1 | printf conflictivo | Explicado en clase |
+| E_2 | El B7 tiene errores !  | Explicado en clase |
+| E_3 | Más acceso concurrente | Ejercitación extra |
+| E_4 | Acceso a un módulo desde varias tareas | OBLIGATORIO |
+| E_5 | Inversión de prioridades | Explicado en clase |
+| E_6 | Inversión de prioridades + UART | Ejercitación extra |
+| E_7 | Condiciones de carrera en sistema cooperativo de Pont | Ejercitación extra |
