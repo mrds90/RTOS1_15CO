@@ -1,0 +1,3 @@
+[submodule "EntregasRTOS_I"]
+	path = EntregasRTOS_I
+	url = git@github.com:mrds90/EntregasRTOS_I.git
