@@ -57,6 +57,7 @@ dkms.conf
 .project
 
 # Program output folders
+*/out/*
 out/*
 .build-log
 
