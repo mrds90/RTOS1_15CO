@@ -76,3 +76,11 @@ Los ejercicios de la Guía B, ademas, son compatibles con el framework (en desar
 | F_5 | Pasaje de estructuras I| Explicado en clase |
 | F_6 | Pasaje de estructuras II | OBLIGATORIO |
 | F_7 | PWM | Opcional (recomendado) |
+
+### __Guia G__
+| Ejercicio | Descripción | Tipo |
+| :-: | :-: | :-: |
+| G_1 | Uso de tecla con interrupciones + semáforo | Explicado en clase |
+| G_2 | Uso de teclas con interrupciones + semáforo | Ejercicio extra |
+| G_3 | Uso de teclas con interrupciones + cola | Explicado en clase |
+| G_4 | UART: recepción y transmisión usando interrupción utilizando semáforo | Ejercicio extra |
